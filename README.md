@@ -1,4 +1,4 @@
-# DA5401 A6: Imputation via Regression for Missing Data
+# Assignment 6 (Imputation via Regression for Missing Data)
 
 ## Student Info:
 Name: Shashank Satish Adsule\
@@ -22,8 +22,45 @@ Roll no.: DA25M005
 
 ## Objective
 
+The goal of this assignment is to **handle missing data using regression-based imputation** techniques.  
+The focus is on demonstrating how to:
+1. Introduce artificial missing values in selected columns (`AGE`, `BILL_AMT`, and `MARRIAGE`).
+2. Apply **median-based imputation** for baseline comparison.
+3. Use **regression models** (Linear Regression, Decision Tree Regressor, and KNN Regressor) to **predict and impute missing values** more accurately.
+4. Evaluate the quality of imputation through regression metrics and visualize the effect on downstream model performance.
+
+## Methodology
+
+1. **Preprocessing & Exploration**
+   - Loaded dataset and inspected duplicates, null counts, and class distribution.
+   - Visualized distributions and correlations using `seaborn` and `matplotlib`.
+
+2. **Simulating Missing Data**
+   - Artificially removed a percentage (e.g., 20%) of values in selected columns.
+   - Created multiple versions of the dataset for different missing ratios.
+
+3. **Imputation Approaches**
+   - **Baseline:** Filled missing values using column **median**.
+   - **Regression-based:**
+     - Built regression models (Linear, KNN, Decision Tree) to predict missing entries.
+     - Compared model-based imputation with the median fill.
+
+4. **Evaluation**
+   - Evaluated reconstructed data consistency.
+   - Used R², RMSE, and correlation plots to measure imputation quality.
+   - Compared imputed data effect on logistic regression classifier accuracy.
+
+1. **Preprocessing & Exploration**
+   - Loaded dataset and inspected duplicates, null counts, and class distribution.
+   - Visualized distributions and correlations using `seaborn` and `matplotlib`.
+
 ## Observations
 
+- Median filling is **simple and fast**, but less accurate when the variable relationships are nonlinear.
+- Regression-based imputation produced **more realistic estimates**, especially for variables like `BILL_AMT` that correlate with `PAY_AMT` features.
+- Decision Tree and KNN regressors handled **nonlinear dependencies** better than Linear Regression.
+- Increasing missing ratio decreased overall accuracy and correlation stability.
+- Imputation quality directly impacted the **classification accuracy** of the downstream model predicting default payment.
 
 
 ## Python Dependencies
@@ -57,6 +94,8 @@ scikit-learn            # machine learning library (modeling, evaluation, prepro
 
 ## Conclusion
 
-
-
-link: https://docs.google.com/forms/d/e/1FAIpQLSe7hCeqn1irfsm4E-0EyRRIOBKyJlyS6jHz4uypirhMX0kpVQ/viewform
+This assignment demonstrates that:
+- **Regression-based imputation** outperforms simple statistical methods (mean/median) by leveraging relationships between features.
+- Among tested models, **Decision Tree Regressor** and **KNN Regressor** offered the best trade-off between accuracy and robustness to nonlinearity.
+- Handling missing data properly is critical for maintaining the reliability of machine learning pipelines.
+- The approach can be extended to other domains where missing data is frequent, such as finance or healthcare analytics.
