@@ -62,6 +62,9 @@ The focus is on demonstrating how to:
 - Increasing missing ratio decreased overall accuracy and correlation stability.
 - Imputation quality directly impacted the **classification accuracy** of the downstream model predicting default payment.
 
+|plots:|![plot1](./assests//model%20comparision%20(lbfgs_5000_0.05).png)|![plot1](./assests//model%20comparision%20(lbfgs_5000_0.1).png)|![plot1](./assests//model%20comparision%20(lbfgs_5000_0.2).png)|
+|:-:|:-:|:-:|:-:|
+|MAR %|5%|10%|20%|
 
 ## Python Dependencies
 The following libraries were used in the analysis:
